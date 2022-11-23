@@ -1,0 +1,18 @@
+/* styles for ProductList.js */ 
+
+/* styles for the products container, which is the products class */ 
+
+.products {
+    display: flex; 
+    flex-direction: column; 
+}
+ 
+/* styles for the individual product objects, which is under the product class */ 
+
+.product {
+
+    background-color: #FFE5EC; 
+    border: 1px dotted #FB6F92;
+    padding: 0.7rem; 
+    margin: 0.5rem 0; 
+}
