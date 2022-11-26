@@ -12,9 +12,9 @@ export const ProductList = () => {
         () => {
 
             if (topPriced) {
-                const topPricedProducts = products.filter(product => product.price > 2)
+                const topPricedProducts = products.filter(product => product.price > 2.00)
                 setProducts(topPricedProducts)
-            }
+            } 
         },
         [topPriced]
     )
@@ -32,14 +32,28 @@ export const ProductList = () => {
     )
 
     return <>
+         { 
+            kandyUserObject.staff 
+                ? <button onClick={ () => { setTopPriced(true) } } >Top Priced</button>
+                : "" 
+        } 
 
-        <button
+        {/* {    
+            kandyUserObject.staff 
+                ? <>
+                    <button onClick={ () => { setTopPriced(true) } } >Top Priced</button>
+                    <button onClick={ () => { setTopPriced(false) } } >Show All</button>
+                </>
+                : "" 
+        }  */}
+
+        {/* <button
             onClick={
                 () => {
                     setTopPriced(true)
                 }
             }
-        >Top Priced</button>
+        >Top Priced</button> */}
 
         <h2>List of Products</h2>
 
@@ -49,7 +63,7 @@ export const ProductList = () => {
                     (product) => {
                         return <section className="product" key={`product--${product.id}`}>
                             <header>{product.name}</header>
-                            <footer>${product.price}</footer>
+                            <footer>${parseFloat(product.price).toFixed(2)}</footer>
                         </section>
                     }
                 )
@@ -57,3 +71,6 @@ export const ProductList = () => {
         </article>
     </>
 }
+
+/* praseFloat() reads the numbers after the decimal */ 
+/* .toFixed() determine how many numbers after the decimial show; .toFixed(2) means format a number to two decimals places */ 
