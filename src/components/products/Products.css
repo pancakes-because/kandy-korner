@@ -16,3 +16,11 @@
     padding: 0.7rem; 
     margin: 0.5rem 0; 
 }
+
+/* styles for the "top priced" and "show all" buttons */ 
+
+button {
+
+    margin: 10px 10px 0px 0px; 
+
+}
