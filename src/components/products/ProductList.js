@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "./Products.css"
 
 export const ProductList = () => {
     const [products, setProducts] = useState([])
     const [topPriced, setTopPriced] = useState([false])
+
+    const navigate = useNavigate()
 
     const localKandyUser = localStorage.getItem("kandy_user")
     const kandyUserObject = JSON.parse(localKandyUser)
@@ -31,12 +34,25 @@ export const ProductList = () => {
         []
     )
 
+    
+
     return <>
-         { 
+
+        { 
+            kandyUserObject.staff 
+                ? <>
+                    <button onClick={ () => { setTopPriced(true) } } >Top Priced</button>
+                    <button onClick={() => navigate("/product/create")}>Create Product</button>
+                </>
+                : ""
+        } 
+
+
+         {/* { 
             kandyUserObject.staff 
                 ? <button onClick={ () => { setTopPriced(true) } } >Top Priced</button>
                 : "" 
-        } 
+        }  */}
 
         {/* {    
             kandyUserObject.staff 
